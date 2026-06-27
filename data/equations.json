@@ -1,0 +1,37 @@
+{
+  "collection": "Malabi Universe",
+
+  "mathematical_domains": {
+
+    "Arithmetic": {
+      "symbol": "+",
+      "tier": "Common",
+      "meaning": "The foundation of numerical operations and the first layer of the mathematical universe."
+    },
+
+    "Calculus": {
+      "symbol": "∫",
+      "tier": "Rare",
+      "meaning": "The mathematics of change, motion, and continuous evolution."
+    },
+
+    "Number Theory": {
+      "symbol": "φ",
+      "tier": "Epic",
+      "meaning": "The hidden patterns, sequences, and structures within numbers."
+    },
+
+    "Unsolved Problems": {
+      "symbol": "ζ",
+      "tier": "Legendary",
+      "meaning": "The frontier of mathematics where unknown discoveries await."
+    },
+
+    "Prime Formula": {
+      "symbol": "◆",
+      "tier": "Mythic",
+      "meaning": "The source equation believed to generate the Malabi Universe."
+    }
+
+  }
+}
