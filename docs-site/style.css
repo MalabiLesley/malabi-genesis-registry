@@ -1,0 +1,152 @@
+body {
+
+    margin: 0;
+    padding: 0;
+
+    background:
+    radial-gradient(circle at top, #101040, #050510);
+
+    color: #00ffff;
+
+    font-family:
+    Arial, sans-serif;
+
+    text-align: center;
+
+}
+
+
+.container {
+
+    max-width: 800px;
+
+    margin: 50px auto;
+
+    padding: 30px;
+
+}
+
+
+h1 {
+
+    font-size: 42px;
+
+    text-shadow:
+    0 0 15px #00ffff;
+
+}
+
+
+h2 {
+
+    text-shadow:
+    0 0 10px #00ffff;
+
+}
+
+
+p {
+
+    color: #d8ffff;
+
+    line-height: 1.6;
+
+}
+
+
+.search-box {
+
+    margin: 30px;
+
+}
+
+
+input {
+
+    padding: 15px;
+
+    width: 250px;
+
+    background:
+    #0a0a20;
+
+    color:
+    white;
+
+    border:
+
+    1px solid #00ffff;
+
+    border-radius: 8px;
+
+}
+
+
+button {
+
+    padding: 15px 25px;
+
+    margin-left: 10px;
+
+    background:
+    #00ffff;
+
+    color:
+    #050510;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+button:hover {
+
+    box-shadow:
+    0 0 20px #00ffff;
+
+}
+
+
+#result {
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border:
+
+    1px solid #00ffff;
+
+    border-radius: 15px;
+
+    background:
+    rgba(0,255,255,0.08);
+
+    min-height: 100px;
+
+}
+
+
+.oracle,
+.lore {
+
+    margin-top: 40px;
+
+    padding: 20px;
+
+    border:
+
+    1px solid #3333ff;
+
+    border-radius: 15px;
+
+    background:
+    rgba(0,0,50,0.5);
+
+}
