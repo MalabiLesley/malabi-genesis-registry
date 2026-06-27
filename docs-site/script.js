@@ -1,48 +1,108 @@
 let crystals = [];
 
 
-fetch("../data/malabi_registry.json")
+// Future upgrade:
+// This will connect directly to malabi_registry.json
 
-.then(response => response.json())
+const registryData = [
 
-.then(data => {
+{
+token_id: 1,
+name: "MALABI UNIVERSE #1",
+tier: "Common",
+domain: "Arithmetic",
+symbol: "+",
+equation: "a+b=c",
+energy: 500,
+dimension: "Arithmetic Valley",
+ai_personality: "The Calculator"
+},
 
-    crystals = data.tokens;
+{
+token_id: 3,
+name: "MALABI UNIVERSE #3",
+tier: "Rare",
+domain: "Calculus",
+symbol: "∫",
+equation: "∫f(x)dx",
+energy: 1500,
+dimension: "Calculus Galaxy",
+ai_personality: "The Integrator"
+},
 
-    console.log("Genesis Registry Loaded");
+{
+token_id: 5,
+name: "MALABI UNIVERSE #5",
+tier: "Epic",
+domain: "Number Theory",
+symbol: "φ",
+equation: "φ = 1.618033",
+energy: 4000,
+dimension: "Golden Ratio Realm",
+ai_personality: "The Harmonizer"
+},
 
-})
+{
+token_id: 7,
+name: "MALABI UNIVERSE #7",
+tier: "Legendary",
+domain: "Unsolved Problems",
+symbol: "ζ",
+equation: "ζ(s)",
+energy: 10000,
+dimension: "Unknown Dimension",
+ai_personality: "The Unknown"
+},
 
-.catch(error => {
+{
+token_id: 8,
+name: "MALABI UNIVERSE #8",
+tier: "Mythic",
+domain: "Prime Formula",
+symbol: "◆",
+equation: "997",
+energy: 30000,
+dimension: "Genesis Core",
+ai_personality: "The Prime Oracle"
+}
 
-    console.log(
-        "Registry connection failed:",
-        error
-    );
+];
 
-});
+
+crystals = registryData;
 
 
 
 function explore(){
 
 
-let id = document
+let id =
+document
 .getElementById("tokenInput")
 .value;
 
 
 
-let crystal = crystals.find(
+let result =
+document
+.getElementById("result");
+
+
+
+result.innerHTML =
+"🔮 Searching the Genesis Matrix...";
+
+
+
+setTimeout(()=>{
+
+
+let crystal =
+crystals.find(
 
 item => item.token_id == id
 
 );
-
-
-
-let result = document
-.getElementById("result");
 
 
 
@@ -51,10 +111,7 @@ if(crystal){
 
 result.innerHTML = `
 
-<h2>
-${crystal.name}
-</h2>
-
+<h2>${crystal.name}</h2>
 
 <p>
 ⭐ Tier:
@@ -96,33 +153,37 @@ ${crystal.dimension}
 
 
 <p>
+
 🤖 Prime Oracle:
 
-<br>
+<br><br>
 
-Your Equation Crystal is guided by:
+"Welcome, explorer.
 
-<strong>
-${crystal.ai_personality}
-</strong>
+Your Equation Crystal is connected to
+${crystal.ai_personality}.
+
+Continue discovering the mathematical universe."
 
 </p>
 
 `;
 
-
-
 }
+
 
 else{
 
 
 result.innerHTML =
 
-"⚠️ Crystal not found in the Genesis Registry.";
-
+"⚠️ Crystal not found. The Prime Formula has not registered this identity.";
 
 }
+
+
+
+},700);
 
 
 }
