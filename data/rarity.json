@@ -1,0 +1,40 @@
+{
+  "collection": "Malabi Universe",
+  "tiers": {
+    "Common": {
+      "symbol": "+",
+      "domain": "Arithmetic",
+      "supply": 499,
+      "probability": "50%",
+      "energy": 500
+    },
+    "Rare": {
+      "symbol": "∫",
+      "domain": "Calculus",
+      "supply": 249,
+      "probability": "25%",
+      "energy": 1500
+    },
+    "Epic": {
+      "symbol": "φ",
+      "domain": "Number Theory",
+      "supply": 150,
+      "probability": "15%",
+      "energy": 4000
+    },
+    "Legendary": {
+      "symbol": "ζ",
+      "domain": "Unsolved Problems",
+      "supply": 70,
+      "probability": "7%",
+      "energy": 10000
+    },
+    "Mythic": {
+      "symbol": "◆",
+      "domain": "Prime Formula",
+      "supply": 29,
+      "probability": "3%",
+      "energy": 30000
+    }
+  }
+}
