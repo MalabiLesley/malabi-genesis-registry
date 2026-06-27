@@ -2,56 +2,51 @@
 
 ## The Mathematical Identity Layer of Malabi Universe
 
-The Malabi Genesis Registry is the official identity database powering the 997 Equation Crystals of the Malabi Universe.
+The Malabi Genesis Registry is the official identity infrastructure for the Malabi Universe ecosystem. It connects 997 Equation Crystals to a structured NFT identity model that supports mathematics, lore, AI interpretation, and future Web3 integrations.
 
-Each NFT represents a mathematical entity generated from the Prime Formula.
-
-## Purpose
+## Project Purpose
 
 The registry provides:
-
 - NFT identity mapping
-- Mathematical domains
-- Rarity classification
-- Equation attributes
-- Energy systems
-- Evolution framework
-- AI-ready metadata
+- Mathematical domain attribution
+- Rarity and tier classification
+- Equation metadata
+- Energy and evolution tracking
+- AI-ready identity data
 
-## Collection
+## Collection Overview
 
-Name:
-Malabi Universe
-
-Blockchain:
-Supra
-
-Marketplace:
-Crystara
-
-Supply:
-997 Equation Crystals
+- Name: Malabi Universe
+- Blockchain: Supra
+- Marketplace: Crystara
+- Supply: 997 Equation Crystals
 
 ## Mathematical Domains
 
-+ Arithmetic
-∫ Calculus
-φ Number Theory
-ζ Unsolved Problems
-◆ Prime Formula Core
+- Arithmetic: +
+- Calculus: ∫
+- Number Theory: φ
+- Unsolved Problems: ζ
+- Prime Formula: ◆
+
+## Current Status
+
+- Genesis registry structure completed
+- Explorer website implemented
+- AI knowledge layer initialized
+- Validation workflow added for schema consistency
 
 ## Future Integrations
 
-This registry will power:
-
+This registry will support:
 - Malabi Universe Explorer
 - Prime Oracle AI
-- $MALABI Energy System
-- NFT Evolution
+- $MALABI energy economy
+- NFT evolution
 - Puzzle Arena
-- PiVerse Integration
-- DAO Governance
+- PiVerse integration
+- DAO governance
 
 ## Vision
 
-A universe where mathematics becomes digital identity.
+A universe where mathematics becomes digital identity, intelligence, and civilization.

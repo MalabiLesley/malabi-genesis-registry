@@ -3,83 +3,76 @@
   "blockchain": "Supra",
   "marketplace": "Crystara",
   "total_supply": 997,
-
   "tokens": [
-
     {
       "token_id": 1,
       "name": "MALABI UNIVERSE #1",
       "tier": "Common",
-      "domain": "Arithmetic",
+      "rarity": "Common",
+      "mathematical_domain": "Arithmetic",
       "symbol": "+",
       "equation": "a+b=c",
+      "energy_level": 500,
       "dimension": "Arithmetic Valley",
-      "energy": 500,
-      "evolution_level": 1,
-      "guardian_rank": "Explorer",
       "ai_personality": "The Calculator",
-      "status": "Genesis Crystal"
+      "evolution_level": 1,
+      "lore": "The first crystallized expression of balance and numerical order."
     },
-
     {
       "token_id": 3,
       "name": "MALABI UNIVERSE #3",
       "tier": "Rare",
-      "domain": "Calculus",
+      "rarity": "Rare",
+      "mathematical_domain": "Calculus",
       "symbol": "∫",
       "equation": "∫f(x)dx",
+      "energy_level": 1500,
       "dimension": "Calculus Galaxy",
-      "energy": 1500,
-      "evolution_level": 1,
-      "guardian_rank": "Scholar",
       "ai_personality": "The Integrator",
-      "status": "Genesis Crystal"
+      "evolution_level": 1,
+      "lore": "A crystal carrying the language of change, motion, and flowing structure."
     },
-
     {
       "token_id": 5,
       "name": "MALABI UNIVERSE #5",
       "tier": "Epic",
-      "domain": "Number Theory",
+      "rarity": "Epic",
+      "mathematical_domain": "Number Theory",
       "symbol": "φ",
       "equation": "φ = 1.618033",
+      "energy_level": 4000,
       "dimension": "Golden Ratio Realm",
-      "energy": 4000,
-      "evolution_level": 1,
-      "guardian_rank": "Pattern Guardian",
       "ai_personality": "The Harmonizer",
-      "status": "Genesis Crystal"
+      "evolution_level": 1,
+      "lore": "A resonance crystal linking hidden numeric order to cosmic harmony."
     },
-
     {
       "token_id": 7,
       "name": "MALABI UNIVERSE #7",
       "tier": "Legendary",
-      "domain": "Unsolved Problems",
+      "rarity": "Legendary",
+      "mathematical_domain": "Unsolved Problems",
       "symbol": "ζ",
       "equation": "ζ(s)",
+      "energy_level": 10000,
       "dimension": "Unknown Dimension",
-      "energy": 10000,
-      "evolution_level": 1,
-      "guardian_rank": "Prime Researcher",
       "ai_personality": "The Unknown",
-      "status": "Genesis Crystal"
+      "evolution_level": 1,
+      "lore": "A frontier crystal bound to unresolved mathematical mysteries."
     },
-
     {
       "token_id": 8,
       "name": "MALABI UNIVERSE #8",
       "tier": "Mythic",
-      "domain": "The Prime Formula",
+      "rarity": "Mythic",
+      "mathematical_domain": "Prime Formula",
       "symbol": "◆",
       "equation": "997",
+      "energy_level": 30000,
       "dimension": "Genesis Core",
-      "energy": 30000,
-      "evolution_level": 1,
-      "guardian_rank": "Prime Guardian",
       "ai_personality": "The Prime Oracle",
-      "status": "Genesis Artifact"
+      "evolution_level": 1,
+      "lore": "The apex artifact believed to contain the original pattern of the universe."
     }
-
   ]
 }

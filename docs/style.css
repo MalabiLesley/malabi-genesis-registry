@@ -1,267 +1,138 @@
 body {
-
-    margin: 0;
-    padding: 0;
-
-    background:
-    radial-gradient(circle at top, #111144, #050510 70%);
-
-    color: #00ffff;
-
-    font-family: Arial, sans-serif;
-
-    text-align: center;
-
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #111144, #050510 70%);
+  color: #00ffff;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
-
-
 
 .container {
-
-    max-width: 900px;
-
-    margin: 40px auto;
-
-    padding: 30px;
-
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
 }
 
+.hero {
+  padding: 20px 10px 10px;
+}
 
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  color: #8ef7ff;
+  margin-bottom: 8px;
+}
 
 h1 {
-
-    font-size: 45px;
-
-    letter-spacing: 3px;
-
-    text-shadow:
-    0 0 20px #00ffff;
-
+  font-size: 45px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px #00ffff;
+  margin-bottom: 8px;
 }
-
-
 
 h2 {
-
-    color: #00ffff;
-
-    text-shadow:
-    0 0 10px #00ffff;
-
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
 }
-
-
 
 h3 {
-
-    color: #9fffff;
-
+  color: #9fffff;
 }
-
-
 
 p {
-
-    color: #d9ffff;
-
-    line-height: 1.7;
-
-    font-size: 17px;
-
+  color: #d9ffff;
+  line-height: 1.7;
+  font-size: 17px;
 }
-
-
-
 
 .search-box,
-#result,
-.oracle,
-.project,
-.blockchain,
-.roadmap,
-.lore {
-
-
-    margin-top: 35px;
-
-    padding: 25px;
-
-
-    background:
-    rgba(0,255,255,0.08);
-
-
-    border:
-
-    1px solid #00ffff;
-
-
-    border-radius: 20px;
-
-
-    box-shadow:
-
-    0 0 20px rgba(0,255,255,0.3);
-
-
+.result-card,
+.card {
+  margin-top: 28px;
+  padding: 24px;
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid #00ffff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
 }
 
-
-
-
+.search-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
 
 input {
-
-
-    padding: 15px;
-
-
-    width: 260px;
-
-
-    background:
-
-    #050510;
-
-
-    color: white;
-
-
-    border:
-
-    1px solid #00ffff;
-
-
-    border-radius: 10px;
-
-
-    font-size: 16px;
-
-
+  padding: 15px;
+  width: min(320px, 90%);
+  background: #050510;
+  color: white;
+  border: 1px solid #00ffff;
+  border-radius: 10px;
+  font-size: 16px;
 }
-
-
-
 
 button {
-
-
-    padding: 15px 30px;
-
-
-    margin-left: 10px;
-
-
-    background:
-
-    #00ffff;
-
-
-    color:
-
-    #050510;
-
-
-    border: none;
-
-
-    border-radius: 10px;
-
-
-    font-weight: bold;
-
-
-    cursor: pointer;
-
-
+  padding: 15px 30px;
+  background: #00ffff;
+  color: #050510;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
 }
-
-
-
 
 button:hover {
-
-
-    box-shadow:
-
-    0 0 25px #00ffff;
-
-
+  box-shadow: 0 0 25px #00ffff;
 }
 
-
-
-
-a {
-
-
-    color:
-
-    #00ffff;
-
-
-    text-decoration:
-
-    none;
-
-
-    font-weight:
-
-    bold;
-
-
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 28px;
 }
 
-
-
-a:hover {
-
-
-    text-shadow:
-
-    0 0 10px #00ffff;
-
-
+.card {
+  margin-top: 0;
+  text-align: left;
 }
 
-
-
-
+.card p {
+  margin: 8px 0;
+}
 
 .roadmap p {
-
-
-    border-left:
-
-    3px solid #00ffff;
-
-
-    padding-left:
-
-    15px;
-
-
-    text-align:
-
-    left;
-
-
+  border-left: 3px solid #00ffff;
+  padding-left: 15px;
 }
 
+a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-
-
+a:hover {
+  text-shadow: 0 0 10px #00ffff;
+}
 
 footer {
+  margin-top: 36px;
+  padding: 20px;
+  opacity: 0.8;
+}
 
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 
-    margin-top: 50px;
-
-
-    padding: 20px;
-
-
-    opacity: 0.7;
-
-
+  .container {
+    padding: 18px;
+  }
 }
