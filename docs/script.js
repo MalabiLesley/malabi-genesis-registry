@@ -1,18 +1,40 @@
-const registryUrl = "../data/malabi_registry.json";
 let crystals = [];
 
+function resolveRegistryCandidates() {
+  const pageUrl = window.location.href;
+  return [
+    new URL("./data/malabi_registry.json", pageUrl).toString(),
+    new URL("../data/malabi_registry.json", pageUrl).toString(),
+    "./data/malabi_registry.json",
+    "../data/malabi_registry.json"
+  ];
+}
+
 async function loadRegistry() {
-  try {
-    const response = await fetch(registryUrl);
-    if (!response.ok) {
-      throw new Error(`Registry request failed with status ${response.status}`);
+  const candidates = resolveRegistryCandidates();
+  const seen = new Set();
+
+  for (const candidate of candidates) {
+    if (seen.has(candidate)) {
+      continue;
     }
-    const data = await response.json();
-    crystals = data.tokens || [];
-  } catch (error) {
-    console.error("Unable to load registry data", error);
-    crystals = [];
+    seen.add(candidate);
+
+    try {
+      const response = await fetch(candidate, { cache: "no-store" });
+      if (!response.ok) {
+        continue;
+      }
+      const data = await response.json();
+      crystals = data.tokens || [];
+      return;
+    } catch (error) {
+      console.warn(`Registry request failed for ${candidate}`, error);
+    }
   }
+
+  console.error("Unable to load registry data from any known path.");
+  crystals = [];
 }
 
 function normalizeCrystalPayload(payload) {
