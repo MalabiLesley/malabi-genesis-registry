@@ -15,3 +15,11 @@ def test_github_pages_registry_copy_exists():
     assert isinstance(data, dict)
     assert data.get("tokens")
     assert len(data["tokens"]) >= 5
+
+
+def test_repository_root_redirects_to_pages_site():
+    root_index = ROOT / "index.html"
+    assert root_index.exists(), "The repository root should expose a landing page for GitHub Pages"
+
+    content = root_index.read_text(encoding="utf-8")
+    assert "docs/" in content
