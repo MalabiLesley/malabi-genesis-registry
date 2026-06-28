@@ -41,6 +41,9 @@ function normalizeCrystalPayload(payload = {}) {
   const blockchain = payload.blockchain || {};
   const crystara = payload.crystara || {};
   const lore = typeof payload.lore === "string" ? payload.lore : payload.lore?.story || "No lore provided.";
+  const imageUrl = payload.image || payload.image_url || payload.animation_url || payload.imageUrl || payload.metadata?.image || payload.metadata?.image_url || payload.data?.image || null;
+  const description = payload.description || payload.metadata?.description || payload.data?.description || "";
+  const attributes = payload.attributes || payload.metadata?.attributes || payload.data?.attributes || [];
 
   return {
     token_id: payload.token_id,
@@ -50,6 +53,9 @@ function normalizeCrystalPayload(payload = {}) {
     mathematical_domain: payload.mathematical_domain || payload.domain || identity.domain || "Unknown",
     symbol: payload.symbol || identity.symbol || "◌",
     equation: payload.equation || mathematics.equation || "Unknown",
+    image_url: imageUrl,
+    description,
+    attributes,
     energy_level: payload.energy_level || payload.energy || energy.amount || 0,
     dimension: payload.dimension || payload.lore?.dimension || "Unknown Dimension",
     ai_personality: payload.ai_personality || payload.personality || ai.personality || "The Prime Oracle",
@@ -84,6 +90,26 @@ function normalizeCrystalPayload(payload = {}) {
   };
 }
 
+async function fetchLiveMetadata(tokenId) {
+  const candidateUrls = [
+    `https://api.crystara.trade/v1/nfts/${tokenId}`,
+    `https://api.crystara.trade/v1/assets/${tokenId}`
+  ];
+
+  for (const url of candidateUrls) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) continue;
+      const payload = await response.json();
+      return payload;
+    } catch (error) {
+      console.warn(`Live metadata request failed for ${url}`, error);
+    }
+  }
+
+  return null;
+}
+
 function renderResult(content) {
   const result = document.getElementById("result");
   result.className = "result-card";
@@ -108,22 +134,36 @@ async function explore() {
     await loadRegistry();
   }
 
-  const crystal = crystals.find((item) => String(item.token_id) === tokenId);
+  const localCrystal = crystals.find((item) => String(item.token_id) === tokenId);
+  const liveCrystal = await fetchLiveMetadata(tokenId);
 
-  if (!crystal) {
+  if (!localCrystal && !liveCrystal) {
     renderResult(
-      `<h2>Not Found</h2><p>⚠️ Crystal ID ${tokenId} is not registered in the Genesis Registry.</p>`
+      `<h2>Not Found</h2><p>⚠️ Crystal ID ${tokenId} is not registered in the Genesis Registry and no live Crystara metadata was found.</p>`
     );
     return;
   }
 
-  const normalizedCrystal = normalizeCrystalPayload(crystal);
+  const mergedPayload = {
+    ...(localCrystal || {}),
+    ...(liveCrystal || {}),
+    lore: localCrystal?.lore || liveCrystal?.lore || liveCrystal?.description || "No lore provided.",
+    image_url: liveCrystal?.image || liveCrystal?.image_url || liveCrystal?.animation_url || liveCrystal?.metadata?.image || localCrystal?.image_url || null,
+    description: liveCrystal?.description || localCrystal?.description || ""
+  };
+
+  const normalizedCrystal = normalizeCrystalPayload(mergedPayload);
   const isMinted = ["minted", "transferred"].includes(normalizedCrystal.blockchain.mint_status);
   const ownerLine = normalizedCrystal.blockchain.owner
     ? buildLine("👤 Owner:", normalizedCrystal.blockchain.owner)
     : "";
 
+  const imageBlock = normalizedCrystal.image_url
+    ? `<div class="result-image"><img src="${normalizedCrystal.image_url}" alt="${normalizedCrystal.name} preview" /></div>`
+    : "";
+
   let output = `
+    ${imageBlock}
     <h2>${normalizedCrystal.name}</h2>
     <p><em>Equation Crystal ID ${normalizedCrystal.token_id}</em></p>
     ${buildLine("⭐ Identity:", `${normalizedCrystal.tier} · ${normalizedCrystal.mathematical_domain}`)}
