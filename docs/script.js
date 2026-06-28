@@ -37,20 +37,54 @@ async function loadRegistry() {
   crystals = [];
 }
 
-function normalizeCrystalPayload(payload) {
+function normalizeCrystalPayload(payload = {}) {
+  const identity = payload.identity || {};
+  const mathematics = payload.mathematics || {};
+  const energy = payload.energy || {};
+  const ai = payload.ai || {};
+  const blockchain = payload.blockchain || {};
+  const crystara = payload.crystara || {};
+  const lore = typeof payload.lore === "string" ? payload.lore : payload.lore?.story || "No lore provided.";
+
   return {
     token_id: payload.token_id,
     name: payload.name || payload.title || "Unnamed Crystal",
-    tier: payload.tier || payload.rarity || "Unknown",
-    rarity: payload.rarity || payload.tier || "Unknown",
-    mathematical_domain: payload.mathematical_domain || payload.domain || "Unknown",
-    symbol: payload.symbol || "◌",
-    equation: payload.equation || "Unknown",
-    energy_level: payload.energy_level || payload.energy || 0,
-    dimension: payload.dimension || "Unknown Dimension",
-    ai_personality: payload.ai_personality || payload.personality || "The Prime Oracle",
-    evolution_level: payload.evolution_level || 1,
-    lore: payload.lore || "No lore provided."
+    tier: payload.tier || payload.rarity || identity.tier || "Unknown",
+    rarity: payload.rarity || payload.tier || identity.tier || "Unknown",
+    mathematical_domain: payload.mathematical_domain || payload.domain || identity.domain || "Unknown",
+    symbol: payload.symbol || identity.symbol || "◌",
+    equation: payload.equation || mathematics.equation || "Unknown",
+    energy_level: payload.energy_level || payload.energy || energy.amount || 0,
+    dimension: payload.dimension || payload.lore?.dimension || "Unknown Dimension",
+    ai_personality: payload.ai_personality || payload.personality || ai.personality || "The Prime Oracle",
+    evolution_level: payload.evolution_level || energy.evolution_level || 1,
+    lore,
+    identity: {
+      tier: identity.tier || payload.tier || "Unknown",
+      domain: identity.domain || payload.mathematical_domain || "Unknown",
+      symbol: identity.symbol || payload.symbol || "◌"
+    },
+    mathematics: {
+      equation: mathematics.equation || payload.equation || "Unknown",
+      concept: mathematics.concept || "Genesis mathematical identity"
+    },
+    energy: {
+      amount: energy.amount || payload.energy_level || 0,
+      evolution_level: energy.evolution_level || payload.evolution_level || 1
+    },
+    ai: {
+      personality: ai.personality || payload.ai_personality || "The Prime Oracle",
+      role: ai.role || "Genesis Interpreter"
+    },
+    blockchain: {
+      network: blockchain.network || "Supra",
+      mint_status: blockchain.mint_status || "unminted",
+      owner: blockchain.owner || null
+    },
+    crystara: {
+      marketplace: crystara.marketplace || "Crystara",
+      status: crystara.status || "available"
+    }
   };
 }
 
@@ -94,22 +128,42 @@ async function explore() {
 
   const localCrystal = crystals.find((item) => String(item.token_id) === tokenId);
   const liveCrystal = await fetchLiveMetadata(tokenId);
-  const crystal = liveCrystal || localCrystal;
+  const crystal = localCrystal || liveCrystal;
 
   if (crystal) {
     const normalizedCrystal = normalizeCrystalPayload(crystal);
-    result.innerHTML = `
-      <h2>${normalizedCrystal.name}</h2>
-      <p><strong>⭐ Tier:</strong> ${normalizedCrystal.tier}</p>
-      <p><strong>🔢 Mathematical Domain:</strong> ${normalizedCrystal.mathematical_domain}</p>
-      <p><strong>Symbol:</strong> ${normalizedCrystal.symbol}</p>
-      <p><strong>Equation:</strong> ${normalizedCrystal.equation}</p>
-      <p><strong>⚡ Energy Level:</strong> ${normalizedCrystal.energy_level} MALABI</p>
-      <p><strong>🌌 Dimension:</strong> ${normalizedCrystal.dimension}</p>
-      <p><strong>🧠 AI Personality:</strong> ${normalizedCrystal.ai_personality}</p>
-      <p><strong>📜 Lore:</strong> ${normalizedCrystal.lore}</p>
-      ${liveCrystal ? '<p><em>Live metadata detected.</em></p>' : '<p><em>Local registry data displayed.</em></p>'}
-    `;
+    const isMinted = ["minted", "transferred"].includes(normalizedCrystal.blockchain.mint_status);
+    const ownerLine = normalizedCrystal.blockchain.owner
+      ? `<p><strong>👤 Owner:</strong> ${normalizedCrystal.blockchain.owner}</p>`
+      : "";
+
+    if (isMinted) {
+      result.innerHTML = `
+        <h2>${normalizedCrystal.name}</h2>
+        <p><em>Equation Crystal crystallized on-chain and linked to a verified owner.</em></p>
+        <p><strong>⭐ Identity:</strong> ${normalizedCrystal.tier} · ${normalizedCrystal.mathematical_domain}</p>
+        <p><strong>🔢 Equation:</strong> ${normalizedCrystal.equation}</p>
+        ${ownerLine}
+        <p><strong>⛓ Blockchain:</strong> ${normalizedCrystal.blockchain.network} · ${normalizedCrystal.blockchain.mint_status}</p>
+        <p><strong>🛍 Crystara:</strong> ${normalizedCrystal.crystara.marketplace} · ${normalizedCrystal.crystara.status}</p>
+        <p><strong>🧠 AI Personality:</strong> ${normalizedCrystal.ai_personality}</p>
+      `;
+    } else {
+      result.innerHTML = `
+        <h2>${normalizedCrystal.name}</h2>
+        <p><em>Equation Crystal discovered in the Genesis Matrix. Awaiting blockchain crystallization.</em></p>
+        <p><strong>⭐ Identity:</strong> ${normalizedCrystal.tier} · ${normalizedCrystal.mathematical_domain}</p>
+        <p><strong>📜 Lore:</strong> ${normalizedCrystal.lore}</p>
+        <p><strong>🔢 Mathematical Attributes:</strong> ${normalizedCrystal.mathematics.concept}</p>
+        <p><strong>⚡ Energy:</strong> ${normalizedCrystal.energy.amount} MALABI · Evolution ${normalizedCrystal.energy.evolution_level}</p>
+      `;
+    }
+
+    if (liveCrystal) {
+      result.innerHTML += '<p><em>Live metadata detected.</em></p>';
+    } else {
+      result.innerHTML += '<p><em>Local registry data displayed.</em></p>';
+    }
   } else {
     result.innerHTML = "⚠️ Crystal not found. The Prime Formula has not registered this identity.";
   }

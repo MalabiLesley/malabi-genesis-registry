@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict
 
 
 REQUIRED_FIELDS = [
@@ -16,6 +16,12 @@ REQUIRED_FIELDS = [
     "ai_personality",
     "evolution_level",
     "lore",
+    "identity",
+    "mathematics",
+    "energy",
+    "ai",
+    "blockchain",
+    "crystara",
 ]
 
 

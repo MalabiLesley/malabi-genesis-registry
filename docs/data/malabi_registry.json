@@ -3,6 +3,11 @@
   "blockchain": "Supra",
   "marketplace": "Crystara",
   "total_supply": 997,
+  "protocol": {
+    "name": "Malabi Genesis Registry",
+    "version": "2.1",
+    "description": "Blockchain-ready NFT identity protocol for the 997 Equation Crystals."
+  },
   "tokens": [
     {
       "token_id": 1,
@@ -16,7 +21,33 @@
       "dimension": "Arithmetic Valley",
       "ai_personality": "The Calculator",
       "evolution_level": 1,
-      "lore": "The first crystallized expression of balance and numerical order."
+      "lore": "The first crystallized expression of balance and numerical order.",
+      "identity": {
+        "tier": "Common",
+        "domain": "Arithmetic",
+        "symbol": "+"
+      },
+      "mathematics": {
+        "equation": "a+b=c",
+        "concept": "Arithmetic balance and foundational order"
+      },
+      "energy": {
+        "amount": 500,
+        "evolution_level": 1
+      },
+      "ai": {
+        "personality": "The Calculator",
+        "role": "Arithmetic Oracle"
+      },
+      "blockchain": {
+        "network": "Supra",
+        "mint_status": "unminted",
+        "owner": null
+      },
+      "crystara": {
+        "marketplace": "Crystara",
+        "status": "available"
+      }
     },
     {
       "token_id": 3,
@@ -30,7 +61,33 @@
       "dimension": "Calculus Galaxy",
       "ai_personality": "The Integrator",
       "evolution_level": 1,
-      "lore": "A crystal carrying the language of change, motion, and flowing structure."
+      "lore": "A crystal carrying the language of change, motion, and flowing structure.",
+      "identity": {
+        "tier": "Rare",
+        "domain": "Calculus",
+        "symbol": "∫"
+      },
+      "mathematics": {
+        "equation": "∫f(x)dx",
+        "concept": "Change, motion, and flowing structure"
+      },
+      "energy": {
+        "amount": 1500,
+        "evolution_level": 2
+      },
+      "ai": {
+        "personality": "The Integrator",
+        "role": "Flow Oracle"
+      },
+      "blockchain": {
+        "network": "Supra",
+        "mint_status": "unminted",
+        "owner": null
+      },
+      "crystara": {
+        "marketplace": "Crystara",
+        "status": "available"
+      }
     },
     {
       "token_id": 5,
@@ -44,7 +101,33 @@
       "dimension": "Golden Ratio Realm",
       "ai_personality": "The Harmonizer",
       "evolution_level": 1,
-      "lore": "A resonance crystal linking hidden numeric order to cosmic harmony."
+      "lore": "A resonance crystal linking hidden numeric order to cosmic harmony.",
+      "identity": {
+        "tier": "Epic",
+        "domain": "Number Theory",
+        "symbol": "φ"
+      },
+      "mathematics": {
+        "equation": "φ = 1.618033",
+        "concept": "Golden ratio resonance and hidden order"
+      },
+      "energy": {
+        "amount": 4000,
+        "evolution_level": 3
+      },
+      "ai": {
+        "personality": "The Harmonizer",
+        "role": "Resonance Oracle"
+      },
+      "blockchain": {
+        "network": "Supra",
+        "mint_status": "minted",
+        "owner": "0xA1b2C3d4E5f6"
+      },
+      "crystara": {
+        "marketplace": "Crystara",
+        "status": "listed"
+      }
     },
     {
       "token_id": 7,
@@ -58,7 +141,33 @@
       "dimension": "Unknown Dimension",
       "ai_personality": "The Unknown",
       "evolution_level": 1,
-      "lore": "A frontier crystal bound to unresolved mathematical mysteries."
+      "lore": "A frontier crystal bound to unresolved mathematical mysteries.",
+      "identity": {
+        "tier": "Legendary",
+        "domain": "Unsolved Problems",
+        "symbol": "ζ"
+      },
+      "mathematics": {
+        "equation": "ζ(s)",
+        "concept": "Frontier mathematics and unresolved mysteries"
+      },
+      "energy": {
+        "amount": 10000,
+        "evolution_level": 4
+      },
+      "ai": {
+        "personality": "The Unknown",
+        "role": "Mystery Oracle"
+      },
+      "blockchain": {
+        "network": "Supra",
+        "mint_status": "transferred",
+        "owner": "0x7F8A9B0C1D2E"
+      },
+      "crystara": {
+        "marketplace": "Crystara",
+        "status": "sold"
+      }
     },
     {
       "token_id": 8,
@@ -72,7 +181,33 @@
       "dimension": "Genesis Core",
       "ai_personality": "The Prime Oracle",
       "evolution_level": 1,
-      "lore": "The apex artifact believed to contain the original pattern of the universe."
+      "lore": "The apex artifact believed to contain the original pattern of the universe.",
+      "identity": {
+        "tier": "Mythic",
+        "domain": "Prime Formula",
+        "symbol": "◆"
+      },
+      "mathematics": {
+        "equation": "997",
+        "concept": "Prime mathematical foundation"
+      },
+      "energy": {
+        "amount": 30000,
+        "evolution_level": 5
+      },
+      "ai": {
+        "personality": "The Prime Oracle",
+        "role": "Genesis Interpreter"
+      },
+      "blockchain": {
+        "network": "Supra",
+        "mint_status": "minted",
+        "owner": "0xPrimeOracleWallet"
+      },
+      "crystara": {
+        "marketplace": "Crystara",
+        "status": "listed"
+      }
     }
   ]
 }
