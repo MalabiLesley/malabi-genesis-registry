@@ -1,44 +1,122 @@
 body {
-    margin: 0;
-    padding: 0;
-    background: #050510;
-    color: #00ffff;
-    font-family: Arial, sans-serif;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #111144, #050510 70%);
+  color: #00ffff;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 .container {
-    margin: 50px auto;
-    max-width: 700px;
-    padding: 30px;
-    border: 1px solid #00ffff;
-    border-radius: 15px;
-    box-shadow: 0 0 25px #00ffff;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+}
+
+.hero {
+  padding: 20px 10px 10px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  color: #8ef7ff;
+  margin-bottom: 8px;
 }
 
 h1 {
-    font-size: 40px;
+  font-size: 45px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px #00ffff;
+  margin-bottom: 8px;
+}
+
+h2 {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+h3 {
+  color: #9fffff;
+}
+
+p {
+  color: #d9ffff;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.search-box,
+.result-card {
+  margin-top: 28px;
+  padding: 24px;
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid #00ffff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+}
+
+.search-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
 }
 
 input {
-    padding: 15px;
-    width: 250px;
-    background: #0a0a1a;
-    color: white;
-    border: 1px solid #00ffff;
+  padding: 15px;
+  width: min(320px, 90%);
+  background: #050510;
+  color: white;
+  border: 1px solid #00ffff;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
 button {
-    padding: 15px 25px;
-    background: #00ffff;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+  padding: 15px 30px;
+  background: #00ffff;
+  color: #050510;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-#result {
-    margin-top: 30px;
-    padding: 20px;
-    background: rgba(0,255,255,0.1);
-    border-radius: 10px;
+button:hover {
+  box-shadow: 0 0 25px #00ffff;
+}
+
+.result-card {
+  text-align: left;
+}
+
+.result-card p {
+  margin: 10px 0;
+}
+
+.result-card h2 {
+  margin-top: 0;
+}
+
+.mint-link {
+  margin-top: 12px;
+}
+
+.mint-link a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.mint-link a:hover {
+  text-shadow: 0 0 10px #00ffff;
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding: 18px;
+  }
 }
