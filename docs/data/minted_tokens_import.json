@@ -1,0 +1,62 @@
+{
+  "collection": "Malabi Universe",
+  "marketplace": "Crystara",
+  "tokens": [
+    {
+      "token_id": 5,
+      "name": "MALABI UNIVERSE #5",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+      "crystara_status": "listed",
+      "supra_status": "minted",
+      "owner": "0xA1b2C3d4E5f6",
+      "tier": "Epic",
+      "domain": "Number Theory",
+      "symbol": "φ",
+      "equation": "φ = 1.618033",
+      "energy": 4000,
+      "evolution_level": 3,
+      "dimension": "Golden Ratio Realm",
+      "lore": "A resonance crystal linking hidden numeric order to cosmic harmony.",
+      "ai_personality": "The Harmonizer",
+      "crystara": {
+        "marketplace": "Crystara",
+        "status": "listed",
+        "token_reference": "MALABI-005",
+        "marketplace_url": "https://crystara.trade/marketplace/malabiuniverse/5"
+      },
+      "blockchain": {
+        "network": "Supra",
+        "mint_status": "minted",
+        "owner": "0xA1b2C3d4E5f6"
+      }
+    },
+    {
+      "token_id": 8,
+      "name": "MALABI UNIVERSE #8",
+      "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80",
+      "crystara_status": "listed",
+      "supra_status": "minted",
+      "owner": "0xPrimeOracleWallet",
+      "tier": "Mythic",
+      "domain": "Prime Formula",
+      "symbol": "◆",
+      "equation": "997",
+      "energy": 30000,
+      "evolution_level": 5,
+      "dimension": "Genesis Core",
+      "lore": "The apex artifact believed to contain the original pattern of the universe.",
+      "ai_personality": "The Prime Oracle",
+      "crystara": {
+        "marketplace": "Crystara",
+        "status": "listed",
+        "token_reference": "MALABI-008",
+        "marketplace_url": "https://crystara.trade/marketplace/malabiuniverse/8"
+      },
+      "blockchain": {
+        "network": "Supra",
+        "mint_status": "minted",
+        "owner": "0xPrimeOracleWallet"
+      }
+    }
+  ]
+}

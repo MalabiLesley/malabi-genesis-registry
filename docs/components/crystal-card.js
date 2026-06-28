@@ -4,7 +4,14 @@ export function renderCrystalCard(crystal) {
   const rarityColor = getRarityColor(crystal.rarity || crystal.identity.tier);
   const status = formatStatusBadge(crystal.crystara_status || crystal.blockchain.mint_status || 'unminted');
   const ownerRow = crystal.blockchain.owner ? `<p class="info-row"><span>Owner</span><span>${crystal.blockchain.owner}</span></p>` : '';
-  const imageSrc = crystal.image || 'https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal';
+  const imageSrc = crystal.image || crystal.image_url || 'https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal';
+  const tokenReference = crystal.marketplace?.token_reference || crystal.crystara?.token_reference || crystal.token_reference || null;
+  const marketplaceUrl = crystal.marketplace?.marketplace_url || crystal.crystara?.marketplace_url || crystal.marketplace_url || null;
+  const tokenLink = tokenReference && marketplaceUrl
+    ? `<p class="info-row"><span>Crystara Token</span><span><a href="${marketplaceUrl}" target="_blank" rel="noopener noreferrer">${tokenReference}</a></span></p>`
+    : tokenReference
+      ? `<p class="info-row"><span>Crystara Token</span><span>${tokenReference}</span></p>`
+      : '';
 
   return `
     <div class="crystal-card glass-panel">
@@ -53,12 +60,18 @@ export function renderCrystalCard(crystal) {
           <p class="info-row"><span>AI Personality</span><span>${crystal.ai.personality}</span></p>
           <p class="info-row"><span>Mint Status</span><span>${crystal.crystara_status || crystal.blockchain.mint_status || 'unminted'}</span></p>
           ${ownerRow}
+          ${tokenLink}
           <p class="info-row"><span>Marketplace</span><span>${crystal.marketplace.name}</span></p>
         </div>
 
         <div class="lore-block">
           <p class="info-label">Genesis Story</p>
           <p>${crystal.lore_text || crystal.lore.story}</p>
+        </div>
+
+        <div class="lore-block">
+          <p class="info-label">Minted NFT Profile</p>
+          <p>${crystal.blockchain.mint_status === 'unminted' ? 'This crystal is prepared for future minting and can be linked to a live Crystara token later.' : 'This profile is ready to anchor a live minted NFT record with Crystara artwork, marketplace references, and ownership history.'}</p>
         </div>
       </div>
     </div>

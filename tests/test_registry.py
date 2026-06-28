@@ -39,6 +39,8 @@ def test_registry_contains_lifecycle_and_blockchain_fields():
         assert token["domain"]
         assert token["symbol"]
         assert token["equation"]
+        if token["supra_status"] in {"minted", "transferred"}:
+            assert token["crystara"].get("token_reference") or token["crystara"].get("marketplace_url")
         assert token["energy"]
         assert token["evolution_level"]
         assert token["dimension"]

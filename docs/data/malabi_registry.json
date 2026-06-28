@@ -60,8 +60,8 @@
       "tier": "Rare",
       "rarity": "Rare",
       "mathematical_domain": "Calculus",
-      "symbol": "∫",
-      "equation": "∫f(x)dx",
+      "symbol": "\u222b",
+      "equation": "\u222bf(x)dx",
       "energy_level": 1500,
       "dimension": "Calculus Galaxy",
       "ai_personality": "The Integrator",
@@ -70,10 +70,10 @@
       "identity": {
         "tier": "Rare",
         "domain": "Calculus",
-        "symbol": "∫"
+        "symbol": "\u222b"
       },
       "mathematics": {
-        "equation": "∫f(x)dx",
+        "equation": "\u222bf(x)dx",
         "concept": "Change, motion, and flowing structure"
       },
       "energy": {
@@ -105,26 +105,23 @@
       "tier": "Epic",
       "rarity": "Epic",
       "mathematical_domain": "Number Theory",
-      "symbol": "φ",
-      "equation": "φ = 1.618033",
+      "symbol": "\u03c6",
+      "equation": "\u03c6 = 1.618033",
       "energy_level": 4000,
       "dimension": "Golden Ratio Realm",
       "ai_personality": "The Harmonizer",
-      "evolution_level": 1,
+      "evolution_level": 3,
       "lore": "A resonance crystal linking hidden numeric order to cosmic harmony.",
       "identity": {
         "tier": "Epic",
         "domain": "Number Theory",
-        "symbol": "φ"
+        "symbol": "\u03c6"
       },
       "mathematics": {
-        "equation": "φ = 1.618033",
+        "equation": "\u03c6 = 1.618033",
         "concept": "Golden ratio resonance and hidden order"
       },
-      "energy": {
-        "amount": 4000,
-        "evolution_level": 3
-      },
+      "energy": 4000,
       "ai": {
         "personality": "The Harmonizer",
         "role": "Resonance Oracle"
@@ -136,9 +133,11 @@
       },
       "crystara": {
         "marketplace": "Crystara",
-        "status": "listed"
+        "status": "listed",
+        "token_reference": "MALABI-005",
+        "marketplace_url": "https://crystara.trade/marketplace/malabiuniverse/5"
       },
-      "image": "https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
       "crystara_status": "listed",
       "supra_status": "minted",
       "owner": "0xA1b2C3d4E5f6",
@@ -150,8 +149,8 @@
       "tier": "Legendary",
       "rarity": "Legendary",
       "mathematical_domain": "Unsolved Problems",
-      "symbol": "ζ",
-      "equation": "ζ(s)",
+      "symbol": "\u03b6",
+      "equation": "\u03b6(s)",
       "energy_level": 10000,
       "dimension": "Unknown Dimension",
       "ai_personality": "The Unknown",
@@ -160,10 +159,10 @@
       "identity": {
         "tier": "Legendary",
         "domain": "Unsolved Problems",
-        "symbol": "ζ"
+        "symbol": "\u03b6"
       },
       "mathematics": {
-        "equation": "ζ(s)",
+        "equation": "\u03b6(s)",
         "concept": "Frontier mathematics and unresolved mysteries"
       },
       "energy": {
@@ -181,7 +180,9 @@
       },
       "crystara": {
         "marketplace": "Crystara",
-        "status": "sold"
+        "status": "sold",
+        "token_reference": "MALABI-007",
+        "marketplace_url": "https://crystara.trade/marketplace/malabiuniverse/7"
       },
       "image": "https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal",
       "crystara_status": "sold",
@@ -195,26 +196,23 @@
       "tier": "Mythic",
       "rarity": "Mythic",
       "mathematical_domain": "Prime Formula",
-      "symbol": "◆",
+      "symbol": "\u25c6",
       "equation": "997",
       "energy_level": 30000,
       "dimension": "Genesis Core",
       "ai_personality": "The Prime Oracle",
-      "evolution_level": 1,
+      "evolution_level": 5,
       "lore": "The apex artifact believed to contain the original pattern of the universe.",
       "identity": {
         "tier": "Mythic",
         "domain": "Prime Formula",
-        "symbol": "◆"
+        "symbol": "\u25c6"
       },
       "mathematics": {
         "equation": "997",
         "concept": "Prime mathematical foundation"
       },
-      "energy": {
-        "amount": 30000,
-        "evolution_level": 5
-      },
+      "energy": 30000,
       "ai": {
         "personality": "The Prime Oracle",
         "role": "Genesis Interpreter"
@@ -226,9 +224,11 @@
       },
       "crystara": {
         "marketplace": "Crystara",
-        "status": "listed"
+        "status": "listed",
+        "token_reference": "MALABI-008",
+        "marketplace_url": "https://crystara.trade/marketplace/malabiuniverse/8"
       },
-      "image": "https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal",
+      "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80",
       "crystara_status": "listed",
       "supra_status": "minted",
       "owner": "0xPrimeOracleWallet",

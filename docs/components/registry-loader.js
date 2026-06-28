@@ -53,6 +53,7 @@ export function normalizeToken(payload = {}) {
     token_id: payload.token_id || payload.id || null,
     name: payload.name || payload.title || `Malabi Universe #${payload.token_id || payload.id || '000'}`,
     image,
+    image_url: image,
     identity: {
       tier,
       domain,
@@ -80,7 +81,9 @@ export function normalizeToken(payload = {}) {
     },
     marketplace: {
       name: payload.marketplace?.name || payload.crystara?.marketplace || 'Crystara',
-      collection: payload.marketplace?.collection || 'Malabi Universe'
+      collection: payload.marketplace?.collection || 'Malabi Universe',
+      token_reference: payload.crystara?.token_reference || payload.token_reference || payload.crystara_token || null,
+      marketplace_url: payload.crystara?.marketplace_url || payload.marketplace_url || null
     },
     rarity: tier,
     crystara_status: crystaraStatus,

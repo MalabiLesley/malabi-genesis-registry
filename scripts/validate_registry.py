@@ -30,6 +30,8 @@ REQUIRED_FIELDS = [
     "crystara",
 ]
 
+CRYSTARA_REFERENCE_FIELDS = ["token_reference", "marketplace_url"]
+
 
 def _load_json(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as handle:
@@ -54,6 +56,11 @@ def validate_registry(root: Path) -> Dict[str, Any]:
         for field in REQUIRED_FIELDS:
             if field not in token:
                 missing_fields.append((token.get("token_id", "unknown"), field))
+        if token.get("supra_status") in {"minted", "transferred"}:
+            crystara = token.get("crystara") or {}
+            for field in CRYSTARA_REFERENCE_FIELDS:
+                if not crystara.get(field):
+                    missing_fields.append((token.get("token_id", "unknown"), f"crystara.{field}"))
 
     total_supply = registry.get("total_supply")
     if total_supply is None:

@@ -64,5 +64,7 @@ def normalize_crystal_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
         "crystara": {
             "marketplace": crystara.get("marketplace") or "Crystara",
             "status": payload.get("crystara_status") or crystara.get("status") or "available",
+            "token_reference": crystara.get("token_reference") or payload.get("token_reference") or payload.get("crystara_token") or None,
+            "marketplace_url": crystara.get("marketplace_url") or payload.get("marketplace_url") or None,
         },
     }

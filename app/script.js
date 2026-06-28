@@ -97,7 +97,9 @@ function normalizeCrystalPayload(payload = {}) {
     },
     crystara: {
       marketplace: crystara.marketplace || "Crystara",
-      status: crystaraStatus
+      status: crystaraStatus,
+      token_reference: payload.crystara?.token_reference || payload.token_reference || payload.crystara_token || null,
+      marketplace_url: payload.crystara?.marketplace_url || payload.marketplace_url || null
     }
   };
 }
