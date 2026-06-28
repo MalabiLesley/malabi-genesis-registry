@@ -5,8 +5,8 @@
   "total_supply": 997,
   "protocol": {
     "name": "Malabi Genesis Registry",
-    "version": "2.1",
-    "description": "Blockchain-ready NFT identity protocol for the 997 Equation Crystals."
+    "version": "2.2",
+    "description": "Official live-collection registry schema for Crystara and Supra-ready NFT identity."
   },
   "tokens": [
     {
@@ -47,7 +47,12 @@
       "crystara": {
         "marketplace": "Crystara",
         "status": "available"
-      }
+      },
+      "image": "https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal",
+      "crystara_status": "available",
+      "supra_status": "unminted",
+      "owner": null,
+      "domain": "Arithmetic"
     },
     {
       "token_id": 3,
@@ -87,7 +92,12 @@
       "crystara": {
         "marketplace": "Crystara",
         "status": "available"
-      }
+      },
+      "image": "https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal",
+      "crystara_status": "available",
+      "supra_status": "unminted",
+      "owner": null,
+      "domain": "Calculus"
     },
     {
       "token_id": 5,
@@ -127,7 +137,12 @@
       "crystara": {
         "marketplace": "Crystara",
         "status": "listed"
-      }
+      },
+      "image": "https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal",
+      "crystara_status": "listed",
+      "supra_status": "minted",
+      "owner": "0xA1b2C3d4E5f6",
+      "domain": "Number Theory"
     },
     {
       "token_id": 7,
@@ -167,7 +182,12 @@
       "crystara": {
         "marketplace": "Crystara",
         "status": "sold"
-      }
+      },
+      "image": "https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal",
+      "crystara_status": "sold",
+      "supra_status": "transferred",
+      "owner": "0x7F8A9B0C1D2E",
+      "domain": "Unsolved Problems"
     },
     {
       "token_id": 8,
@@ -207,7 +227,12 @@
       "crystara": {
         "marketplace": "Crystara",
         "status": "listed"
-      }
+      },
+      "image": "https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal",
+      "crystara_status": "listed",
+      "supra_status": "minted",
+      "owner": "0xPrimeOracleWallet",
+      "domain": "Prime Formula"
     }
   ]
 }

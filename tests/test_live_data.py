@@ -27,6 +27,11 @@ def test_normalize_crystal_payload_supports_common_fields():
 
     assert normalized["token_id"] == 8
     assert normalized["mathematical_domain"] == "Prime Formula"
+    assert normalized["domain"] == "Prime Formula"
     assert normalized["energy_level"] == 30000
+    assert normalized["energy"] == 30000
     assert normalized["ai_personality"] == "The Prime Oracle"
     assert normalized["lore"] == "Live metadata loaded from a remote source."
+    assert normalized["supra_status"] == "unminted"
+    assert normalized["crystara_status"] == "available"
+    assert normalized["owner"] is None

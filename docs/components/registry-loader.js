@@ -35,7 +35,7 @@ export async function loadRegistry() {
 
 export function normalizeToken(payload = {}) {
   const tier = payload.identity?.tier || payload.tier || payload.rarity || 'Common';
-  const domain = payload.identity?.domain || payload.mathematical_domain || payload.domain || 'Unknown';
+  const domain = payload.identity?.domain || payload.domain || payload.mathematical_domain || 'Unknown';
   const symbol = payload.identity?.symbol || payload.symbol || '◆';
   const equation = payload.mathematics?.equation || payload.equation || payload.symbol || '997';
   const concept = payload.mathematics?.concept || payload.concept || 'Prime foundation';
@@ -44,9 +44,10 @@ export function normalizeToken(payload = {}) {
   const dimension = payload.lore?.dimension || payload.dimension || 'Genesis Core';
   const story = typeof payload.lore === 'string' ? payload.lore : payload.lore?.story || payload.description || 'Origin crystal of the Prime Formula';
   const aiPersonality = payload.ai?.personality || payload.ai_personality || payload.personality || 'Prime Oracle';
-  const mintStatus = payload.blockchain?.mint_status || payload.blockchain?.status || payload.mint_status || 'unminted';
-  const owner = payload.blockchain?.owner || null;
+  const mintStatus = payload.supra_status || payload.blockchain?.mint_status || payload.blockchain?.status || payload.mint_status || 'unminted';
+  const owner = payload.owner || payload.blockchain?.owner || null;
   const image = payload.image || payload.image_url || payload.animation_url || payload.metadata?.image || payload.metadata?.image_url || '';
+  const crystaraStatus = payload.crystara_status || payload.crystara?.status || payload.marketplace?.status || 'available';
 
   return {
     token_id: payload.token_id || payload.id || null,
@@ -81,7 +82,16 @@ export function normalizeToken(payload = {}) {
       name: payload.marketplace?.name || payload.crystara?.marketplace || 'Crystara',
       collection: payload.marketplace?.collection || 'Malabi Universe'
     },
-    rarity: tier
+    rarity: tier,
+    crystara_status: crystaraStatus,
+    supra_status: mintStatus,
+    owner,
+    domain,
+    equation,
+    evolution_level: energyLevel,
+    dimension,
+    lore_text: story,
+    ai_personality: aiPersonality
   };
 }
 

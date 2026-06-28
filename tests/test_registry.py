@@ -30,5 +30,19 @@ def test_registry_contains_lifecycle_and_blockchain_fields():
         assert "ai" in token
         assert "blockchain" in token
         assert "crystara" in token
+        assert token["token_id"]
+        assert token["name"]
+        assert token["image"]
+        assert token["crystara_status"] in {"available", "listed", "sold"}
+        assert token["supra_status"] in {"unminted", "minted", "transferred"}
+        assert token["owner"] is None or isinstance(token["owner"], str)
+        assert token["domain"]
+        assert token["symbol"]
+        assert token["equation"]
+        assert token["energy"]
+        assert token["evolution_level"]
+        assert token["dimension"]
+        assert token["lore"]
+        assert token["ai_personality"]
         assert token["blockchain"]["mint_status"] in {"unminted", "minted", "transferred"}
         assert token["crystara"]["status"] in {"available", "listed", "sold"}

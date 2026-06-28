@@ -2,14 +2,15 @@ import { getRarityColor, formatStatusBadge } from './status-engine.js';
 
 export function renderCrystalCard(crystal) {
   const rarityColor = getRarityColor(crystal.rarity || crystal.identity.tier);
-  const status = formatStatusBadge(crystal.blockchain.mint_status);
+  const status = formatStatusBadge(crystal.crystara_status || crystal.blockchain.mint_status || 'unminted');
   const ownerRow = crystal.blockchain.owner ? `<p class="info-row"><span>Owner</span><span>${crystal.blockchain.owner}</span></p>` : '';
+  const imageSrc = crystal.image || 'https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal';
 
   return `
     <div class="crystal-card glass-panel">
       <div class="card-visual">
         <div class="image-shell">
-          <img src="${crystal.image || 'https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal'}" alt="${crystal.name}" />
+          <img src="${imageSrc}" alt="${crystal.name}" />
         </div>
         <div class="status-pill" style="border-color: ${status.accent}; color: ${status.accent};">
           <span>${status.label}</span>
@@ -50,13 +51,14 @@ export function renderCrystalCard(crystal) {
         <div class="info-block">
           <p class="info-row"><span>Dimension</span><span>${crystal.lore.dimension}</span></p>
           <p class="info-row"><span>AI Personality</span><span>${crystal.ai.personality}</span></p>
+          <p class="info-row"><span>Mint Status</span><span>${crystal.crystara_status || crystal.blockchain.mint_status || 'unminted'}</span></p>
           ${ownerRow}
           <p class="info-row"><span>Marketplace</span><span>${crystal.marketplace.name}</span></p>
         </div>
 
         <div class="lore-block">
           <p class="info-label">Genesis Story</p>
-          <p>${crystal.lore.story}</p>
+          <p>${crystal.lore_text || crystal.lore.story}</p>
         </div>
       </div>
     </div>

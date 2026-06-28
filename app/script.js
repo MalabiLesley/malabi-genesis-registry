@@ -44,31 +44,43 @@ function normalizeCrystalPayload(payload = {}) {
   const imageUrl = payload.image || payload.image_url || payload.animation_url || payload.imageUrl || payload.metadata?.image || payload.metadata?.image_url || payload.data?.image || null;
   const description = payload.description || payload.metadata?.description || payload.data?.description || "";
   const attributes = payload.attributes || payload.metadata?.attributes || payload.data?.attributes || [];
+  const energyAmount = payload.energy || payload.energy_level || energy.amount || 0;
+  const mintStatus = payload.supra_status || blockchain.mint_status || payload.mint_status || "unminted";
+  const crystaraStatus = payload.crystara_status || crystara.status || "available";
 
   return {
     token_id: payload.token_id,
     name: payload.name || payload.title || "Unnamed Crystal",
-    tier: payload.tier || payload.rarity || identity.tier || "Unknown",
-    rarity: payload.rarity || payload.tier || identity.tier || "Unknown",
-    mathematical_domain: payload.mathematical_domain || payload.domain || identity.domain || "Unknown",
-    symbol: payload.symbol || identity.symbol || "◌",
-    equation: payload.equation || mathematics.equation || "Unknown",
     image_url: imageUrl,
     description,
     attributes,
-    energy_level: payload.energy_level || payload.energy || energy.amount || 0,
+    tier: payload.tier || payload.rarity || identity.tier || "Unknown",
+    rarity: payload.rarity || payload.tier || identity.tier || "Unknown",
+    domain: payload.domain || payload.mathematical_domain || identity.domain || "Unknown",
+    mathematical_domain: payload.mathematical_domain || payload.domain || identity.domain || "Unknown",
+    symbol: payload.symbol || identity.symbol || "◌",
+    equation: payload.equation || mathematics.equation || "Unknown",
+    energy_level: energyAmount,
+    energy: energyAmount,
     dimension: payload.dimension || payload.lore?.dimension || "Unknown Dimension",
     ai_personality: payload.ai_personality || payload.personality || ai.personality || "The Prime Oracle",
     evolution_level: payload.evolution_level || energy.evolution_level || 1,
     lore,
+    crystara_status: crystaraStatus,
+    supra_status: mintStatus,
+    owner: payload.owner || blockchain.owner || null,
     identity: {
       tier: identity.tier || payload.tier || "Unknown",
-      domain: identity.domain || payload.mathematical_domain || "Unknown",
+      domain: identity.domain || payload.mathematical_domain || payload.domain || "Unknown",
       symbol: identity.symbol || payload.symbol || "◌"
     },
     mathematics: {
       equation: mathematics.equation || payload.equation || "Unknown",
       concept: mathematics.concept || "Genesis mathematical identity"
+    },
+    energy_block: {
+      amount: energy.amount || payload.energy_level || 0,
+      evolution_level: energy.evolution_level || payload.evolution_level || 1
     },
     energy: {
       amount: energy.amount || payload.energy_level || 0,
@@ -80,12 +92,12 @@ function normalizeCrystalPayload(payload = {}) {
     },
     blockchain: {
       network: blockchain.network || "Supra",
-      mint_status: blockchain.mint_status || "unminted",
-      owner: blockchain.owner || null
+      mint_status: mintStatus,
+      owner: payload.owner || blockchain.owner || null
     },
     crystara: {
       marketplace: crystara.marketplace || "Crystara",
-      status: crystara.status || "available"
+      status: crystaraStatus
     }
   };
 }
@@ -134,7 +146,7 @@ async function explore() {
     await loadRegistry();
   }
 
-  const localCrystal = crystals.find((item) => String(item.token_id) === tokenId);
+  const localCrystal = crystals.find((item) => String(item.token_id) === tokenId || String(item.id) === tokenId || String(item.token_id) === tokenId.replace(/^#/, ""));
   const liveCrystal = await fetchLiveMetadata(tokenId);
 
   if (!localCrystal && !liveCrystal) {
@@ -148,7 +160,7 @@ async function explore() {
     ...(localCrystal || {}),
     ...(liveCrystal || {}),
     lore: localCrystal?.lore || liveCrystal?.lore || liveCrystal?.description || "No lore provided.",
-    image_url: liveCrystal?.image || liveCrystal?.image_url || liveCrystal?.animation_url || liveCrystal?.metadata?.image || localCrystal?.image_url || null,
+    image: liveCrystal?.image || liveCrystal?.image_url || liveCrystal?.animation_url || liveCrystal?.metadata?.image || localCrystal?.image || localCrystal?.image_url || null,
     description: liveCrystal?.description || localCrystal?.description || ""
   };
 
@@ -160,14 +172,18 @@ async function explore() {
 
   const imageBlock = normalizedCrystal.image_url
     ? `<div class="result-image"><img src="${normalizedCrystal.image_url}" alt="${normalizedCrystal.name} preview" /></div>`
-    : "";
+    : `<div class="result-image"><img src="https://via.placeholder.com/640x640/0b1220/00ffff?text=Equation+Crystal" alt="${normalizedCrystal.name} placeholder" /></div>`;
 
   let output = `
     ${imageBlock}
     <h2>${normalizedCrystal.name}</h2>
     <p><em>Equation Crystal ID ${normalizedCrystal.token_id}</em></p>
-    ${buildLine("⭐ Identity:", `${normalizedCrystal.tier} · ${normalizedCrystal.mathematical_domain}`)}
+    ${buildLine("⭐ Rarity:", `${normalizedCrystal.tier}`)}
+    ${buildLine("🔬 Mathematical Domain:", `${normalizedCrystal.mathematical_domain}`)}
+    ${buildLine("⚡ Energy:", `${normalizedCrystal.energy.amount} MALABI · Evolution ${normalizedCrystal.energy.evolution_level}`)}
+    ${buildLine("📜 Lore:", normalizedCrystal.lore)}
     ${buildLine("🔢 Equation:", normalizedCrystal.equation)}
+    ${buildLine("🧠 Mint Status:", normalizedCrystal.blockchain.mint_status)}
   `;
 
   if (isMinted) {
@@ -180,8 +196,6 @@ async function explore() {
     `;
   } else {
     output += `
-      ${buildLine("📜 Lore:", normalizedCrystal.lore)}
-      ${buildLine("⚡ Energy:", `${normalizedCrystal.energy.amount} MALABI · Evolution ${normalizedCrystal.energy.evolution_level}`)}
       <p><em>Equation Crystal discovered in the Genesis Matrix. Awaiting blockchain crystallization.</em></p>
     `;
   }
